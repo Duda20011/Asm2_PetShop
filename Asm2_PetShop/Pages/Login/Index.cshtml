@@ -1,0 +1,43 @@
+﻿@page
+@model Asm2_PetShop.Pages.Login.IndexModel
+@{
+    if (ViewData["Message"] != null)
+    {
+        <h3 style="color:red">@ViewData["Message"]</h3>
+    }
+}
+
+<h1>Login Page</h1>
+<hr />
+<div class="row justify-content-center">
+    <div class=" col-md-4">
+        <form method="post">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example1">Email address</label>
+                <input asp-for="Member.EmailAddress" type="email" id="form2Example1" class="form-control" />
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example2">Password</label>
+                <input asp-for="Member.MemberPassword" type="password" id="form2Example2" class="form-control" />
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+            <!-- Register buttons -->
+            <div class="text-center">
+                <p>Not a member? <a href="/register">Register</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

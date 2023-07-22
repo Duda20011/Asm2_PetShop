@@ -1,0 +1,23 @@
+﻿using BussinessObject.Models;
+using Repository.Generic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Repository
+{
+    public class PetRepository : GenericRepository<Pet>, IPetRepository
+    {
+        public IEnumerable<Pet> Search(object filter)
+        {
+            return GetAll().Where(x => x.PetName.Contains(filter.ToString()));
+        }
+
+        public IEnumerable<Pet> Search(object filter, int pageNumber, int pageSize)
+        {
+            return Search(filter).Skip((pageNumber - 1) * pageSize).Take(pageSize);
+        }
+    }
+}

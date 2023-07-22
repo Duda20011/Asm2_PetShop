@@ -1,0 +1,42 @@
+﻿@page
+@model Asm2_PetShop.Pages.Register.IndexModel
+@if (ViewData["Message"] != null)
+{
+    <h3 style="color:red">@ViewData["Message"]</h3>
+}
+
+<h1>Register Page</h1>
+<hr />
+
+<div class="row justify-content-center">
+    <div class=" col-md-4">
+        <form method="post" asp-page-handler="Register">
+            <div class="form-group mb-4">
+                <label for="MemberId">Member ID:</label>
+                <input asp-for="Member.MemberId" type="text" class="form-control" id="MemberId" name="MemberId" required>
+                <span asp-validation-for="Member.MemberId" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-4">
+                <label for="FullName">Full Name:</label>
+                <input asp-for="Member.FullName" type="text" class="form-control" id="FullName" name="FullName" required>
+                <span asp-validation-for="Member.MemberId" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-4">
+                <label for="EmailAddress">EmailAddress:</label>
+                <input asp-for="Member.EmailAddress" type="email" class="form-control" id="EmailAddress" name="EmailAddress" required>
+                <span asp-validation-for="Member.MemberId" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-4">
+                <label for="MemberPassword">Password:</label>
+                <input asp-for="Member.MemberPassword" type="password" class="form-control" id="MemberPassword" name="MemberPassword" required>
+                <span asp-validation-for="Member.MemberId" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mb-4">Register</button>
+
+            <div class="text-center">
+                <p>Already have an account? <a href="/login">Login</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,50 @@
+﻿@page
+@model Asm2_PetShop.Pages.Member.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PetShopMember</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PetShopMember.MemberId" />
+            <div class="form-group">
+                <label asp-for="PetShopMember.MemberPassword" class="control-label"></label>
+                <input asp-for="PetShopMember.MemberPassword" class="form-control" />
+                <span asp-validation-for="PetShopMember.MemberPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetShopMember.FullName" class="control-label"></label>
+                <input asp-for="PetShopMember.FullName" class="form-control" />
+                <span asp-validation-for="PetShopMember.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetShopMember.EmailAddress" class="control-label"></label>
+                <input asp-for="PetShopMember.EmailAddress" class="form-control" />
+                <span asp-validation-for="PetShopMember.EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetShopMember.MemberRole" class="control-label"></label>
+                <input asp-for="PetShopMember.MemberRole" class="form-control" />
+                <span asp-validation-for="PetShopMember.MemberRole" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
